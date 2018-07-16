@@ -1,0 +1,29 @@
+schema: 'https://schema.gigster.com/schemas/cli/2.0.0/gig.yaml'
+version: 2.0.0
+name: loopback-oauth-test
+description: description
+blocks:
+  - name: api
+    location: 'npm:@gigster/block-loopback@2.0.0'
+    spec: {}
+    modules:
+      - name: loopback-models
+        location: 'npm:@gigster/module-loopback-models@1.2.13'
+        spec:
+          defaultDatasource: postgresqlDs
+      - name: loopback-authentication
+        location: 'npm:@gigster/module-loopback-authentication@1.1.13'
+        spec:
+          webEnabled: true
+          emailVerificationRequired: false
+          providers:
+            local: {}
+datasources:
+  - name: postgresqlDs
+    type: postgresql
+    spec:
+      host: DATABASE_POSTGRESQL_HOST
+      port: DATABASE_POSTGRESQL_PORT
+      database: DATABASE_POSTGRESQL_DATABASE
+      user: DATABASE_POSTGRESQL_USER
+      password: DATABASE_POSTGRESQL_PASSWORD

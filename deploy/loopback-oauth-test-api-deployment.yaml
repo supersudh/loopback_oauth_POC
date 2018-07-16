@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: loopback-oauth-test-api
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: loopback-oauth-test-api
+    spec:
+      containers:
+        - name: loopback-oauth-test-api
+          image: 569325332953.dkr.ecr.us-east-1.amazonaws.com/loopback-oauth-test-api:__TAG__
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: loopback-oauth-test-api-secrets
+            - configMapRef:
+                name: loopback-oauth-test-api-configmap
+          ports:
+            - containerPort: 3000

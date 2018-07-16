@@ -1,0 +1,40 @@
+{
+  "strict": true,
+  "name": "role",
+  "properties": {
+    "id": {
+      "id": true,
+      "type": "string"
+    },
+    "name": {
+      "required": true,
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "created": {
+      "defaultFn": "now",
+      "type": "date"
+    },
+    "modified": {
+      "defaultFn": "now",
+      "type": "date"
+    }
+  },
+  "hidden": [],
+  "relations": {
+    "principals": {
+      "foreignKey": "roleId",
+      "model": "roleMapping",
+      "type": "hasMany"
+    }
+  },
+  "indexes": {},
+  "methods": {},
+  "acls": [],
+  "mixins": {
+    "SetupRemoteMethods": {}
+  },
+  "base": "Role"
+}
