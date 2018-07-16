@@ -1,3 +1,4 @@
+global.log = console.log;
 require('dotenv').config();
 
 const loopback = require('loopback');
@@ -32,6 +33,13 @@ boot(app, __dirname, (err) => {
   if (err) throw err;
   serverPassport(app);
   if (app.get('webEnabled')) serverWeb(app);
+  app.get('/link/google/callback', (req, res, next) => {
+    log('AM HERE /link/google/callback');
+    log(req.user);
+    log("************************************************ BEGIN REQ");
+    log(req);
+    log("************************************************ END REQ");
+  });
 
   // start the server if `$ node server.js`
   if (require.main === module) {

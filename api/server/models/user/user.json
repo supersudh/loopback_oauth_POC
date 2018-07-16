@@ -19,7 +19,9 @@
     "profilePictureUrl": {
       "type": "string"
     },
-    "username": false
+    "username": {
+      "type": "string"
+    }
   },
   "hidden": [
     "emailVerified",

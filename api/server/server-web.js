@@ -131,5 +131,5 @@ module.exports = (app) => {
   app.get('/google/fail', (req, res) => {
     console.log('AM HERE');
     res.send(req);
-  })
+  });
 };

@@ -44,5 +44,9 @@
   "userIdentity": {
     "dataSource": "postgresqlDs",
     "public": false
+  },
+  "ACL": {
+    "dataSource": "postgresqlDs",
+    "public": false
   }
 }

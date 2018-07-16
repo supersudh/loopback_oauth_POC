@@ -49,6 +49,16 @@ module.exports = {
       "prompt": 'consent',
       "failureFlash": true,
       "json": true
+    },
+    "local": {
+      "provider": "local",
+      "module": "passport-local",
+      "usernameField": "username",
+      "passwordField": "password",
+      "authPath": "/auth/local",
+      "successRedirect": "/auth/account",
+      "failureRedirect": "/local",
+      "failureFlash": true
     }
   },
 };
