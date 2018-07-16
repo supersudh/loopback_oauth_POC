@@ -11,7 +11,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          <a href="http://localhost:3000/link/google?access_token=9hQwaid09eF54Jwl7pDxNBoC9BEkJpxBI8z2Uf6CYxpfbaPzmqghN1cDGl1fLxtr">LINK GOOGLE</a>
+          <a href="http://localhost:3000/link/google?access_token=qxAivCv8sxRYOa5C0aQ45LGi3hpd1F5aDKqMXXsr97DzvJRwZBI31A7iRH4uRxSU">LINK GOOGLE</a>
         </p>
       </div>
     );

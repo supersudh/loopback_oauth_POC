@@ -30,6 +30,13 @@ module.exports = (app) => {
     userIdentityModel: app.models.userIdentity,
     userCredentialModel: app.models.userCredential,
   });
+  for (var s in providers) {
+    var c = providers[s];
+    c.session = c.session !== false;
+    // overriding default user object
+    c.profileToUser = customProfileToUser;
+    passportConfigurator.configureProvider(s, c);
+  }
 
   // attempt to build the providers/passport config
   const providersConfig = app.get('providers');
@@ -60,5 +67,15 @@ module.exports = (app) => {
         debug(`Ignoring authentication provider ${key}`);
       }
     });
+  }
+
+  function customProfileToUser(provider, profile, options) {
+    const { name, email } = profile._json;
+    var userInfo = {
+      username: name,
+      // password: 'secret',
+      email: email,
+    };
+    return userInfo;
   }
 };
